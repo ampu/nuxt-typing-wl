@@ -1,0 +1,23 @@
+/* stylelint-disable at-rule-no-unknown */
+
+@function rubber--desktop($size) {
+  @return percentage(calc($size / $max-content-width--desktop));
+}
+
+@function outer-rubber--tablet($size) {
+  @return percentage(calc($size / $min-viewport--tablet));
+}
+
+@function rubber--tablet($size) {
+  @return percentage(calc($size / $min-content-width--tablet));
+}
+
+@function outer-rubber--mobile($size) {
+  @return percentage(calc($size / $min-viewport--mobile));
+}
+
+@function rubber--mobile($size) {
+  @return percentage(calc($size / $min-content-width--mobile));
+}
+
+/* stylelint-enable at-rule-no-unknown */

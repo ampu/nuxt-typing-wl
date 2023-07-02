@@ -1,0 +1,44 @@
+{
+  "name": "nuxt-typing-wl",
+  "repository": "https://github.com/ampu/nuxt-typing-wl/",
+  "type": "module",
+  "scripts": {
+    "start": "npm run dev",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "gh-pages": "npm run generate:gh-pages && npm run deploy:gh-pages",
+    "generate:gh-pages": "GH_PAGES=1 nuxt generate",
+    "deploy:gh-pages": "touch .output/public/.nojekyll && gh-pages -t -d .output/public"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/jsdom": "21.1.1",
+    "@types/lodash": "4.14.195",
+    "@types/node": "18.16.18",
+    "@types/react-datepicker": "4.11.2",
+    "gh-pages": "5.0.0",
+    "nuxt": "^3.5.2",
+    "sass": "1.63.4",
+    "typescript": "5.1.3",
+    "vite-svg-loader": "4.0.0"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "0.4.11",
+    "dayjs": "1.11.8",
+    "jsdom": "22.1.0",
+    "lodash": "4.17.21",
+    "nanoid": "4.0.2",
+    "normalize.css": "8.0.1",
+    "pinia": "2.1.4",
+    "react": "17.0.2",
+    "react-datepicker": "4.13.0",
+    "react-dom": "17.0.2",
+    "react-number-format": "5.2.2",
+    "react-yandex-maps": "4.6.0",
+    "veaury": "2.3.12",
+    "vue": "3.3.4"
+  }
+}

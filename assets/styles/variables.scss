@@ -1,0 +1,18 @@
+$text-color: #444444;
+$background-color: #fefefe;
+
+$scroll-width: 20px;
+$max-content-width--desktop: 1170px;
+$side-padding--desktop: 4%;
+$min-viewport--desktop: 1024px;
+$max-viewport--desktop: calc(#{$max-content-width--desktop} + #{2 * $side-padding--desktop});
+
+$max-viewport--tablet: $min-viewport--desktop - 1px;
+$min-viewport--tablet: 768px;
+$min-content-width--tablet: 678px;
+$side-padding--tablet: outer-rubber--tablet(45px);
+
+$max-viewport--mobile: $min-viewport--tablet - 1px;
+$min-viewport--mobile: 320px;
+$min-content-width--mobile: 290px;
+$side-padding--mobile: outer-rubber--mobile(15px);
