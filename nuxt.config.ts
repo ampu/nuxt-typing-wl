@@ -40,9 +40,6 @@ export default defineNuxtConfig({
           additionalData: /* language=scss */ `
             @import "normalize.css/normalize.css";
             @import "@/assets/styles/variables";
-            @import "@/assets/styles/functions";
-            @import "@/assets/styles/mixins";
-            @import "@/assets/styles/animations";
             @import "@/assets/styles/globals";
           `,
         }

@@ -5,7 +5,7 @@
     <Link rel="icon" :href="favicon" type="image/svg+xml"/>
   </Head>
   <Body class="page-body">
-  <NuxtPage class="page-layout"/>
+  <NuxtLayout/>
   </Body>
   </Html>
 </template>

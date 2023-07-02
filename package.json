@@ -39,6 +39,7 @@
     "react-number-format": "5.2.2",
     "react-yandex-maps": "4.6.0",
     "veaury": "2.3.12",
-    "vue": "3.3.4"
+    "vue": "3.3.4",
+    "vuetify": "3.3.6"
   }
 }

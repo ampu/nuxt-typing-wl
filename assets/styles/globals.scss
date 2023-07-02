@@ -22,20 +22,18 @@
 
 #__nuxt,
 .page-layout {
-  min-width: $min-viewport--mobile;
-  height: 100%;
   display: flex;
   flex-flow: column;
+  height: 100%;
 }
 
-.visually-hidden {
-  @include visually-hidden;
+h1, p {
+  margin: 0;
 }
 
-.bounce {
-  animation: bounce 0.6s;
-}
-
-.shake {
-  animation: shake 0.6s;
+.buttons {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  gap: 20px;
 }
