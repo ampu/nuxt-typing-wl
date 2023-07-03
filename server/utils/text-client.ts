@@ -15,6 +15,7 @@ const importQuoteFromGetQuoteResponse = (response: { data: GetQuoteJSON }) =>
   response.data?.quoteText
     ?.replace(/—/g, `-`)
     ?.replace(/[«»]/g, `"`)
+    ?.replace(/ё/g, `е`)
     .trim()
 
 class TextClient {

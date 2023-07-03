@@ -37,3 +37,11 @@ h1, p {
   justify-content: flex-start;
   gap: 20px;
 }
+
+.display-gap {
+  gap: 36px;
+
+  .display-mobile & {
+    gap: 18px;
+  }
+}

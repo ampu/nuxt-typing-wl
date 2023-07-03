@@ -1,5 +1,5 @@
 <template>
-  <section class="AboutSection">
+  <section class="AboutSection display-gap">
     <h1 class="text-h4">
       Измеритель скорости печати
     </h1>
@@ -52,7 +52,5 @@ const leftSecondsSuffix = computed(() => formatSuffix(leftSeconds.value, [`се�
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  gap: 50px;
 }
 </style>

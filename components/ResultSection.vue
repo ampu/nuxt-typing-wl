@@ -1,5 +1,5 @@
 <template>
-  <section class="ResultSection">
+  <section class="ResultSection display-gap">
     <h1 class="text-h4">
       Ваши результаты
     </h1>
@@ -53,7 +53,5 @@ const emit = defineEmits<{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
-  gap: 50px;
 }
 </style>

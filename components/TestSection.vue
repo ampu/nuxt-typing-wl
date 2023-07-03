@@ -1,5 +1,5 @@
 <template>
-  <section class="TestSection">
+  <section class="TestSection display-gap">
     <template v-if="apiText.pending.value">
       <h1 class="text-h4">
         Подождите...
@@ -9,10 +9,18 @@
     <template v-if="!apiText.pending.value">
       <h1 class="text-h4">
         Наберите текст
-        <small>(без кавычек)</small>
       </h1>
 
-      <p>{{ apiText.data }}</p>
+      <VCard class="api-text" variant="outlined">{{ apiText.data.value }}</VCard>
+
+      <VTextarea
+        ref="textarea"
+        :rows="5"
+        variant="outlined"
+        counter
+        no-resize
+        v-model="userText"
+      />
 
       <VTable>
         <col style="width:40%">
@@ -28,15 +36,6 @@
         </tr>
         </tbody>
       </VTable>
-
-      <VTextarea
-        ref="textarea"
-        :rows="5"
-        variant="solo"
-        counter
-        no-resize
-        v-model="userText"
-      />
     </template>
 
     <div class="buttons">
@@ -61,12 +60,13 @@ const emit = defineEmits<{
 }>()
 
 const textarea = ref<ComponentPublicInstance>()
+const userText = ref<string>(``)
+const errors = ref<number>(0)
+
 const apiText = await useFetch<string>(`/api/text`, {
   lazy: true,
   server: false,
 })
-const userText = ref<string>(``)
-const errors = ref<number>(0)
 
 const [leftSeconds, leftMs, elapsedMs] = useCountdown(ref(true), MINUTE)
 const leftSecondsSuffix = computed(() => formatSuffix(leftSeconds.value, [`секунда`, `секунды`, `секунд`]))
@@ -89,7 +89,10 @@ const getResult = () => {
 
 watchEffect(() => {
   if (textarea.value) {
-    textarea.value!.$el.querySelector(`textarea`).focus()
+    textarea.value!.$el.querySelector(`textarea`).focus({
+      preventScroll: true,
+    })
+    window.scroll(0, 0)
   }
 })
 
@@ -119,7 +122,9 @@ watch(userText, (newUserText, oldUserText) => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
-  gap: 50px;
+}
+
+.api-text {
+  padding: 1rem;
 }
 </style>

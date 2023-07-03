@@ -1,29 +1,45 @@
 <template>
-  <div class="Index">
-    <AboutSection
-      v-if="state.isAbout"
-      :error="error"
-      @next="onTest"
-      @exit="onExit"
-    />
+  <VCard
+    class="container"
+    :class="{[`display-mobile`]: display.mobile.value}"
+  >
+    <VWindow
+      class="window"
+      :modelValue="state"
+    >
+      <VWindowItem :value="States.ABOUT">
+        <AboutSection
+          v-if="state.isAbout"
+          :error="error"
+          @next="onTest"
+          @exit="onExit"
+        />
+      </VWindowItem>
 
-    <TestSection
-      v-if="state.isTest"
-      @next="onResult"
-      @exit="onExit"
-      @error="onError"
-    />
+      <VWindowItem :value="States.TEST">
+        <TestSection
+          v-if="state.isTest"
+          @next="onResult"
+          @exit="onExit"
+          @error="onError"
+        />
+      </VWindowItem>
 
-    <ResultSection
-      v-if="state.isResult"
-      :result="result!"
-      @back="onTest"
-      @exit="onExit"
-    />
-  </div>
+      <VWindowItem :value="States.RESULT">
+        <ResultSection
+          v-if="state.isResult"
+          :result="result!"
+          @back="onTest"
+          @exit="onExit"
+        />
+      </VWindowItem>
+    </VWindow>
+  </VCard>
 </template>
 
 <script lang="ts" setup>
+import {useDisplay} from 'vuetify'
+
 import {TypeResult} from '~/utils/type-utils'
 
 type State = {
@@ -43,37 +59,38 @@ const States: Record<string, State> = {
 const state = ref<State>(States.ABOUT)
 const error = ref<boolean>(false)
 const result = ref<TypeResult>()
-const dir = ref(1)
+const display = useDisplay()
 
 const onExit = () => {
   error.value = false
   state.value = States.ABOUT
-  dir.value = -1
 }
 
 const onError = () => {
   error.value = true
   state.value = States.ABOUT
-  dir.value = -1
 }
 
 const onTest = () => {
   error.value = false
   state.value = States.TEST
-  dir.value = 1
 }
 
 const onResult = (newResult: TypeResult) => {
   result.value = newResult
   state.value = States.RESULT
-  dir.value = 1
 }
 </script>
 
 <style lang="scss" scoped>
-.Index {
+.container {
   position: relative;
   display: flex;
   flex-flow: column;
+  box-shadow: none;
+}
+
+.window {
+  padding: 12px;
 }
 </style>
