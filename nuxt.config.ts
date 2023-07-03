@@ -1,6 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import svgLoader from 'vite-svg-loader'
-
 const {GH_PAGES} = process.env
 
 export default defineNuxtConfig({
@@ -21,19 +19,10 @@ export default defineNuxtConfig({
   },
   router: {
     options: {
-      hashMode: true,
+      hashMode: false,
     },
   },
-  modules: [
-    `@pinia/nuxt`,
-  ],
   vite: {
-    plugins: [
-      svgLoader({
-        defaultImport: `url`,
-        svgo: false,
-      })
-    ],
     css: {
       preprocessorOptions: {
         scss: {

@@ -1,8 +1,5 @@
 import {Ref} from 'vue'
 
-import {SECOND} from '~/utils/type-utils'
-import {useInterval} from '~/composables/use-interval'
-
 const noop = () => {
 }
 

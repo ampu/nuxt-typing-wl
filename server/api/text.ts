@@ -1,4 +1,4 @@
-import {textClient} from '../text-client'
+import {textClient} from '../utils/text-client'
 
 export default defineEventHandler(() => textClient.getQuote())
 
