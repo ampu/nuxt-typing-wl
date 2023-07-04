@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  appConfig: {
+    apiBaseURL: GH_PAGES ? `https://akimutin-typing.vercel.app` : undefined
+  },
   components: [
     `~/components`,
   ],

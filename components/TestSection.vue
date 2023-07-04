@@ -52,6 +52,7 @@
 import {ComponentPublicInstance} from 'vue'
 
 import {TypeResult} from '~/utils/type-utils'
+import {ApiEndpoint} from '~/utils/path-utils'
 
 const emit = defineEmits<{
   (type: `next`, value: TypeResult): void,
@@ -63,7 +64,7 @@ const textarea = ref<ComponentPublicInstance>()
 const userText = ref<string>(``)
 const errors = ref<number>(0)
 
-const apiText = await useFetch<string>(`/api/text`, {
+const apiText = await useApiFetch<string>(ApiEndpoint.TEXT, {
   lazy: true,
   server: false,
 })
